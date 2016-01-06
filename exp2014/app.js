@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
+var about = require('./routes/about');
 var faq = require('./routes/faq');
 var users = require('./routes/users');
 
@@ -25,6 +26,7 @@ app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/about', about);
 app.use('/faq', faq);
 app.use('/users', users);
 
