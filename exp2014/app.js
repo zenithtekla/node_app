@@ -1,4 +1,5 @@
 var express = require('express');
+var nunjucks = require('nunjucks');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -14,11 +15,16 @@ var players = require('./routes/players');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+/*app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');*/
+nunjucks.configure('views', {
+    autoescape: true,
+    express: app
+});
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
