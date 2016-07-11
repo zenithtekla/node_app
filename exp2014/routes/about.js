@@ -3,15 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('p_about.html', {
-    title : 'My First Nunjucks Page',
-    items : [
-      { name : 'item #1' },
-      { name : 'item #2' },
-      { name : 'item #3' },
-      { name : 'item #4' },
-    ]
-  });
+  res.render('about', { title: 'About', age: 28 });
   
   // -= access query object =-
   // so if /about?age=30 is passed, console prints { age: '30' }
