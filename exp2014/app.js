@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require("mongoose");
 
 var routes = require('./routes/index');
 var about = require('./routes/about');
@@ -57,7 +58,27 @@ if (app.get('env') === 'development') {
       error: err
     });
   });
+  mongoose.connect('mongodb://localhost:27017/kaiba', function (err, db) {
+    // body...
+    if (!err) console.log('Successfully connected');
+    else console.dir(err);
+  });
 }
+
+mongoose.model('users', {name: String});
+mongoose.model('posts', {content: String});
+
+app.get('/users', function(req, res){
+  mongoose.model('users').find(function(err, users){
+    res.send(users);
+  });
+});
+
+app.get('/posts', function(req, res) {
+  mongoose.model('posts').find(function(err, posts){
+    res.send(posts);
+  });
+})
 
 // production error handler
 // no stacktraces leaked to user

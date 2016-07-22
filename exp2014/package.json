@@ -12,6 +12,7 @@
     "express": "~4.13.1",
     "hjs": "~0.0.6",
     "less-middleware": "1.0.x",
+    "mongoose": "^4.5.5",
     "morgan": "~1.6.1",
     "nunjucks": "^2.4.2",
     "pug": "^2.0.0-beta3",

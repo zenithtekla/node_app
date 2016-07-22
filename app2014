@@ -1,0 +1,3 @@
+cd exp2014
+NODE_ENV=development DEBUG=exp2014:* nodemon start
+
