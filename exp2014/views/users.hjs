@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Users</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <ol>
+    {{#users}} 
+      <li>{{name}}</li>
+    {{/users}}
+    </ol>
+  </body>
+</html>
